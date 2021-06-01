@@ -1,0 +1,26 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Adds sirp namespace to all resources.
+namespace: sirp
+
+secretGenerator:
+  - name: misp-certs
+    files:
+      - certs/misp_http/misp.local.crt
+      - certs/misp_http/misp.local.key
+      - certs/misp_http/misp-chain.crt
+
+resources:
+  - base/sirp-ns.yaml
+  - base/storage-class.yaml
+  - base/pv-volumes.yaml
+
+  - secrets/misp-db-cred-secret.yaml
+
+  - db/misp-db-svc.yaml
+  - db/misp-db-sts.yaml
+  
+  - web/misp-web-svc.yaml
+  - web/misp-web-deploy.yaml
+  - web/misp-claim.yaml

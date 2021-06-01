@@ -1,0 +1,62 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: misp-db
+  namespace: sirp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: misp-db
+  serviceName: misp-db
+  template:
+    metadata:
+      labels:
+        app: misp-db
+      name: misp-db
+    spec:
+      containers:
+        - name: misp-db
+          image: 'mysql/mysql-server:5.7'
+          resources: 
+            limits:
+              cpu: 500m
+              memory: 1Gi
+          env:
+            - name: MYSQL_DATABASE
+              value: 'mispdb'
+            - name: MYSQL_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: misp-db-user-cred
+                  key: password
+            - name: MYSQL_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: misp-db-root-cred
+                  key: password
+            - name: MYSQL_USER
+              valueFrom:
+                secretKeyRef:
+                  name: misp-db-user-cred
+                  key: username
+          securityContext:
+            capabilities:
+              add: ["SYS_CHROOT"]
+          volumeMounts:
+            - name: db-claim
+              mountPath: /var/lib/mysql
+          ports:
+            - containerPort: 3306
+              name: mysql
+  volumeClaimTemplates:
+    - metadata:
+        name: db-claim
+        namespace: sirp
+      spec:
+        accessModes:
+          - ReadWriteOnce
+        storageClassName: misp-storage
+        resources:
+          requests:
+            storage: 50Gi

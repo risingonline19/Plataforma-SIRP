@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: misp-web
+  namespace: sirp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: misp-web
+  template:
+    metadata:
+      labels:
+        app: misp-web
+      name: misp-web
+    spec:
+      volumes:
+        - name: misp-certs
+          secret:
+            secretName: misp-certs
+        - name: web-persistent-st1
+          persistentVolumeClaim:
+            claimName: web-claim1
+      containers:
+        - name: misp-web
+          image: 'risingonline/misp:latest'
+          resources: 
+            limits:
+              cpu: 500m
+              memory: 2Gi
+          volumeMounts:
+            - name: web-persistent-st1
+              mountPath: /var/www/MISP
+            - name: misp-certs
+              mountPath: /etc/ssl/private/misp.local.crt
+              readOnly: true
+              subPath: misp.local.crt
+            - name: misp-certs
+              mountPath: /etc/ssl/private/misp.local.key
+              readOnly: true
+              subPath: misp.local.key
+            - name: misp-certs
+              mountPath: /etc/ssl/private/misp-chain.crt
+              readOnly: true
+              subPath: misp-chain.crt
+          ports:
+            - containerPort: 443
+              name: misp-web
+          env:
+            - name: MISP_ADMIN_EMAIL
+              value: 'admin@cyberhome.es'
+            - name: MISP_ADMIN_PASSPHRASE
+              value: 'Entucasaoenlamia:943'
+              #- name: MISP_BASEURL
+              #value: 'MISP'
+            - name: MYSQL_DATABASE
+              value: 'mispdb'
+            - name: MYSQL_HOST
+              value: 'misp-db-0.misp-db'
+            - name: MYSQL_PASSWORD
+              value: 'Expeluznante_549'
+            - name: MYSQL_USER
+              value: 'misp'
+            - name: POSTFIX_RELAY_HOST
+              value: 'mail.cyberhome.es'
+            - name: TIMEZONE
+              value: 'Europe/Madrid'
