@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: cassandra
+  namespace: sirp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cassandra
+  serviceName: cassandra
+  template:
+    metadata:
+      labels:
+        app: cassandra
+      name: cassandra
+    spec:
+      containers:
+        - env:
+            - name: CASSANDRA_CLUSTER_NAME
+              value: thp
+            - name: HEAP_NEWSIZE
+              value: 1G
+            - name: MAX_HEAP_SIZE
+              value: 1G
+          image: cassandra:3.11
+          name: cassandra
+          resources: 
+            limits:
+              cpu: 500m
+              memory: 2Gi
+          volumeMounts:
+            - mountPath: /var/lib/cassandra/data
+              name: cassandra-claim0
+          ports: 
+            - containerPort: 7000
+              name: intra-node
+            - containerPort: 7001
+              name: tls-intra-node
+            - containerPort: 7199
+              name: jmx
+            - containerPort: 9042
+              name: cql
+            - containerPort: 9160
+              name: thrift
+      hostname: cassandra
+      restartPolicy: Always
+      volumes:
+        - name: cassandra-claim0
+          persistentVolumeClaim:
+            claimName: cassandra-claim0

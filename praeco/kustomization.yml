@@ -1,0 +1,29 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Adds sirp namespace to all resources.
+namespace: sirp
+
+configMapGenerator:
+  - name: elastalert-conf
+    files:
+      - elastalert/config/elastalert.yaml
+      - elastalert/config/api.config.json
+  - name: praeco-conf
+    files:
+      - webapp/public/praeco.config.json
+      - webapp/nginx_config/nginx.conf
+      - webapp/nginx_config/default.conf
+
+resources:
+  - base/sirp-ns.yaml
+  - base/storage-class.yaml
+  - base/pv-volumes.yaml
+
+  - elastalert/elastalert-svc.yaml
+  - elastalert/elastalert-claim0-pvc.yaml
+  - elastalert/elastalert-claim1-pvc.yaml
+  - elastalert/elastalert-deploy.yaml
+
+  - webapp/webapp-svc.yaml
+  - webapp/webapp-deploy.yaml

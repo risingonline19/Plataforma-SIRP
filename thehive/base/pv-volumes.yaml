@@ -1,0 +1,119 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: cdb01
+spec:
+  capacity:
+    storage: 50Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: thehive-storage
+  hostPath:
+    path: /shared/vol02/cassandra/db01
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: data01
+spec:
+  capacity:
+    storage: 200Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: thehive-storage
+  hostPath:
+    path: /shared/vol02/thehive/data01
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: index01
+spec:
+  capacity:
+    storage: 50Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: thehive-storage
+  hostPath:
+    path: /shared/vol02/thehive/index01
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: conf01
+spec:
+  capacity:
+    storage: 100Mi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: thehive-storage
+  hostPath:
+    path: /shared/vol02/nginx/conf01
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: ssl01
+spec:
+  capacity:
+    storage: 10Mi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: thehive-storage
+  hostPath:
+    path: /shared/vol02/nginx/ssl01
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: jobs01
+spec:
+  capacity:
+    storage: 40Gi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: thehive-storage
+  hostPath:
+    path: /shared/vol02/cortex/jobs01
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: esdata01
+spec:
+  capacity:
+    storage: 500Mi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: thehive-storage
+  hostPath:
+    path: /shared/vol02/es/data01
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: eslogs01
+spec:
+  capacity:
+    storage: 400Mi
+  volumeMode: Filesystem
+  accessModes:
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: thehive-storage
+  hostPath:
+    path: /shared/vol02/es/logs01

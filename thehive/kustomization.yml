@@ -1,0 +1,35 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+# Adds sirp namespace to all resources.
+namespace: sirp
+
+configMapGenerator:
+  - name: thehive-conf
+    files:
+      - vol/thehive/application.conf
+
+resources:
+  - base/sirp-ns.yaml
+  - base/storage-class.yaml
+  - base/pv-volumes.yaml
+
+  - cassandra/cassandra-svc.yaml
+  - cassandra/cassandra-sts.yaml
+  - cassandra/cassandra-claim.yaml
+
+  - thehive/thehive-service.yaml
+  - thehive/thehive-deployment.yaml
+  - thehive/thehive-claim.yaml
+
+  - cortex/cortex-service.yaml
+  - cortex/cortex-deployment.yaml
+  - cortex/cortex-claim.yaml
+
+  - nginx/nginx-svc.yaml
+  - nginx/nginx-pod.yaml
+  - nginx/nginx-claim.yaml
+
+  - elasticsearch/elasticsearch-svc.yaml
+  - elasticsearch/elasticsearch-sts.yaml
+  - elasticsearch/elasticsearch-claim.yaml

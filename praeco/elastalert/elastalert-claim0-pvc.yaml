@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  labels:
+    io.kompose.service: elastalert-claim0
+  name: elastalert-claim0
+  namespace: sirp
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: praeco-storage
+  resources:
+    requests:
+      storage: 200Mi

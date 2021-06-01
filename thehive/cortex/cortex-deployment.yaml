@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: cortex
+  name: cortex
+  namespace: sirp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cortex
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: cortex
+    spec:
+      volumes:
+        - name: cortex-claim1
+          persistentVolumeClaim:
+            claimName: cortex-claim1
+        - name: docker-sock
+          hostPath:
+            path: /var/run/docker.sock 
+      containers:
+        - args:
+            - --job-directory
+            - ${JOB_DIRECTORY}
+            - --es-hostname
+            - elasticsearch-0.elasticsearch
+          env:
+            - name: JOB_DIRECTORY
+              value: /tmp/cortex-jobs
+          image: thehiveproject/cortex:latest
+          name: cortex
+          resources: {}
+          volumeMounts:
+            - mountPath: /tmp/cortex-jobs
+              name: cortex-claim1
+            - mountPath: /var/run/docker.sock
+              name: docker-sock

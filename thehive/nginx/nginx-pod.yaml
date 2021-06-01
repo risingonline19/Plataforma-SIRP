@@ -1,0 +1,27 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    app: nginx
+  name: nginx
+  namespace: sirp
+spec:
+  containers:
+    - image: nginx:1.19.5
+      name: nginx
+      ports:
+              #- containerPort: 80
+        - containerPort: 443
+      resources: {}
+      volumeMounts:
+        - mountPath: /etc/nginx/conf.d
+          name: nginx-claim0
+        - mountPath: /etc/ssl
+          name: nginx-claim1
+  volumes:
+    - name: nginx-claim0
+      persistentVolumeClaim:
+        claimName: nginx-claim0
+    - name: nginx-claim1
+      persistentVolumeClaim:
+        claimName: nginx-claim1

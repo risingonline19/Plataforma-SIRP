@@ -1,0 +1,29 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: r01
+spec:
+  capacity:
+    storage: 200Mi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: praeco-storage
+  hostPath:
+    path: /shared/vol02/praeco/elastalert/rules01
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: rt01
+spec:
+  capacity:
+    storage: 100Mi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: praeco-storage
+  hostPath:
+    path: /shared/vol02/praeco/elastalert/rule-templates01

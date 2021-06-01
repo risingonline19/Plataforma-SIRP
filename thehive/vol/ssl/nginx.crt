@@ -1,0 +1,115 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number:
+            ee:f6:27:34:e0:28:4f:8f:88:a3:43:4a:23:ac:80:39
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: CN=MyHome CyberSecurity G2
+        Validity
+            Not Before: May 28 22:04:44 2021 GMT
+            Not After : Aug 31 22:04:44 2023 GMT
+        Subject: C=ES, L=Barcelona, O=CyberHome Ltd, CN=thehive.cyberhome.es
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (2048 bit)
+                Modulus:
+                    00:ce:b1:84:59:0a:ff:ac:59:93:7e:11:9d:66:89:
+                    e0:b1:5d:4e:3f:19:35:41:83:ae:dc:7d:08:ab:1c:
+                    9d:8d:e7:da:89:35:9e:ac:9a:bc:2c:f5:0d:4f:3e:
+                    20:40:3d:d5:01:b6:24:1f:7a:97:99:d8:46:0b:3a:
+                    9d:08:7b:d2:b7:99:c8:a5:44:05:85:18:b9:b7:30:
+                    4f:98:80:c7:52:7c:b6:93:aa:1c:fb:02:b7:3c:93:
+                    ba:ac:b6:53:10:25:9a:c5:5e:05:93:00:21:a1:eb:
+                    33:96:8b:9d:a1:05:bf:49:91:78:7c:5e:bd:ba:60:
+                    cc:97:6d:ca:90:ea:34:23:f2:a3:3d:a6:e1:61:82:
+                    35:35:78:0f:0d:85:4a:73:47:b7:f1:9b:4f:36:a7:
+                    b3:9e:cc:5f:3f:72:d3:33:01:ea:08:2b:c9:64:4c:
+                    d8:a8:ac:23:dc:47:8b:c2:63:11:6a:52:ce:e9:da:
+                    16:f1:8c:b4:ae:85:56:37:97:70:e1:2d:15:b2:83:
+                    cd:ea:3d:2a:8e:2f:2a:b5:fa:55:ba:a2:15:a8:20:
+                    e9:73:ce:d4:38:d3:f0:46:47:13:84:0a:13:53:c6:
+                    f3:cf:f9:1e:22:68:4a:51:7e:f4:21:01:59:ee:6e:
+                    b2:b0:f5:eb:b8:cc:0b:3a:59:e4:bf:be:36:3f:b4:
+                    ca:ef
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 CRL Distribution Points: 
+
+                Full Name:
+                  URI:http://crl.hogar/pki/ca.crl
+
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            X509v3 Subject Key Identifier: 
+                41:4C:BA:0C:BB:48:E9:DD:D1:49:5D:3F:FC:72:3D:C3:D1:26:87:52
+            X509v3 Authority Key Identifier: 
+                keyid:60:26:06:BD:33:26:D0:77:3F:7E:08:CB:67:8A:E7:F3:EF:A6:76:AF
+                DirName:/CN=MyHome CyberSecurity Root CA
+                serial:E5:E5:4B:0A:9C:03:A5:C1:13:43:21:61:53:8A:66:94
+
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication
+            X509v3 Key Usage: 
+                Digital Signature, Key Encipherment
+            X509v3 Subject Alternative Name: 
+                DNS:thehive.cyberhome.es, DNS:cortex.cyberhome.es, DNS:praeco.cyberhome.es
+    Signature Algorithm: sha256WithRSAEncryption
+         4a:64:53:1d:35:45:0c:7b:8a:c5:88:ce:07:43:eb:68:74:86:
+         38:2a:e3:6a:6a:11:01:9a:76:bc:7f:d2:84:22:41:8e:8b:48:
+         a0:38:ca:26:b4:f0:61:3c:33:66:81:f2:d4:14:ff:ca:f1:da:
+         1b:11:73:31:b2:12:0d:93:22:c1:36:90:20:45:25:9b:eb:1f:
+         4e:28:7c:56:91:1a:71:83:7e:c2:17:1c:37:76:cb:31:af:fd:
+         a3:54:5e:d2:fa:f2:de:9d:ea:d9:df:b8:17:93:f6:9b:35:8d:
+         d4:0a:5e:43:0f:c5:55:b1:9d:37:8c:35:81:31:c6:31:93:42:
+         a7:68:0f:ea:11:1d:24:d9:f9:c8:11:0b:35:93:3b:44:fd:c0:
+         a9:e3:a1:74:56:2a:34:0c:4d:ea:bf:1f:a9:6a:18:17:5b:04:
+         51:b3:b2:60:00:d8:2c:fb:b5:05:1e:65:5c:d8:f1:ce:f0:b5:
+         e7:1a:f6:a8:cf:6f:f4:62:0b:d9:b6:b3:d4:a2:23:26:68:88:
+         3c:88:71:e5:a0:1f:da:86:77:06:6f:08:1e:a1:3e:b4:d6:ce:
+         ac:63:88:c4:11:18:10:fb:3d:e6:79:10:d7:71:cf:47:e0:1a:
+         fc:eb:2e:31:3c:de:3e:67:c7:2c:8f:19:22:31:27:52:8a:92:
+         c7:a6:76:26:ab:68:53:96:e5:17:7b:94:6b:3a:20:2e:74:b0:
+         d9:f2:dc:8a:7a:c7:ff:e5:a8:ea:71:3b:85:d3:a9:b4:7e:85:
+         47:be:76:dd:48:0f:e6:d3:4d:75:2a:a6:b3:38:9b:b1:f6:89:
+         25:ed:74:26:fd:1a:53:8a:29:3e:dd:ad:86:39:9a:ec:25:df:
+         56:8c:37:ad:49:e6:ef:01:0f:6b:4a:40:55:21:62:da:a8:81:
+         47:b8:b4:f2:3a:e2:9c:1d:0f:7d:34:75:38:62:74:88:d9:0c:
+         d1:e4:85:1c:f4:be:7a:49:cd:9c:d5:2e:ac:b1:d1:d6:ae:26:
+         fa:c4:be:c6:d3:70:52:dd:98:4f:b4:20:a5:e9:ee:1b:ee:3c:
+         51:30:f1:4b:ac:08:02:19:96:5d:8f:1e:61:c6:d7:a4:45:d5:
+         4b:f8:dc:91:e7:f0:81:cf:5b:c6:14:1e:b2:e3:af:ef:41:2a:
+         1e:99:e6:84:60:07:f3:c3:fc:5a:c0:04:fb:9a:c7:b0:f4:c1:
+         f0:b0:c7:c0:e5:93:95:fe:88:3d:4e:82:32:41:67:b6:f1:7e:
+         a3:ec:bd:d9:dc:dd:8b:6d:ad:2c:31:27:66:0d:f5:f9:00:7f:
+         ad:e0:62:eb:24:0c:31:b2:10:b2:36:6e:70:13:78:02:a8:a0:
+         e2:e1:5b:60:0d:72:44:02
+-----BEGIN CERTIFICATE-----
+MIIFMTCCAxmgAwIBAgIRAO72JzTgKE+PiKNDSiOsgDkwDQYJKoZIhvcNAQELBQAw
+IjEgMB4GA1UEAwwXTXlIb21lIEN5YmVyU2VjdXJpdHkgRzIwHhcNMjEwNTI4MjIw
+NDQ0WhcNMjMwODMxMjIwNDQ0WjBYMQswCQYDVQQGEwJFUzESMBAGA1UEBwwJQmFy
+Y2Vsb25hMRYwFAYDVQQKDA1DeWJlckhvbWUgTHRkMR0wGwYDVQQDDBR0aGVoaXZl
+LmN5YmVyaG9tZS5lczCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAM6x
+hFkK/6xZk34RnWaJ4LFdTj8ZNUGDrtx9CKscnY3n2ok1nqyavCz1DU8+IEA91QG2
+JB96l5nYRgs6nQh70reZyKVEBYUYubcwT5iAx1J8tpOqHPsCtzyTuqy2UxAlmsVe
+BZMAIaHrM5aLnaEFv0mReHxevbpgzJdtypDqNCPyoz2m4WGCNTV4Dw2FSnNHt/Gb
+Tzans57MXz9y0zMB6ggryWRM2KisI9xHi8JjEWpSzunaFvGMtK6FVjeXcOEtFbKD
+zeo9Ko4vKrX6VbqiFagg6XPO1DjT8EZHE4QKE1PG88/5HiJoSlF+9CEBWe5usrD1
+67jMCzpZ5L++Nj+0yu8CAwEAAaOCASowggEmMCwGA1UdHwQlMCMwIaAfoB2GG2h0
+dHA6Ly9jcmwuaG9nYXIvcGtpL2NhLmNybDAJBgNVHRMEAjAAMB0GA1UdDgQWBBRB
+TLoMu0jp3dFJXT/8cj3D0SaHUjBfBgNVHSMEWDBWgBRgJga9MybQdz9+CMtniufz
+76Z2r6ErpCkwJzElMCMGA1UEAwwcTXlIb21lIEN5YmVyU2VjdXJpdHkgUm9vdCBD
+QYIRAOXlSwqcA6XBE0MhYVOKZpQwEwYDVR0lBAwwCgYIKwYBBQUHAwEwCwYDVR0P
+BAQDAgWgMEkGA1UdEQRCMECCFHRoZWhpdmUuY3liZXJob21lLmVzghNjb3J0ZXgu
+Y3liZXJob21lLmVzghNwcmFlY28uY3liZXJob21lLmVzMA0GCSqGSIb3DQEBCwUA
+A4ICAQBKZFMdNUUMe4rFiM4HQ+todIY4KuNqahEBmna8f9KEIkGOi0igOMomtPBh
+PDNmgfLUFP/K8dobEXMxshINkyLBNpAgRSWb6x9OKHxWkRpxg37CFxw3dssxr/2j
+VF7S+vLenerZ37gXk/abNY3UCl5DD8VVsZ03jDWBMcYxk0KnaA/qER0k2fnIEQs1
+kztE/cCp46F0Vio0DE3qvx+pahgXWwRRs7JgANgs+7UFHmVc2PHO8LXnGvaoz2/0
+YgvZtrPUoiMmaIg8iHHloB/ahncGbwgeoT601s6sY4jEERgQ+z3meRDXcc9H4Br8
+6y4xPN4+Z8csjxkiMSdSipLHpnYmq2hTluUXe5RrOiAudLDZ8tyKesf/5ajqcTuF
+06m0foVHvnbdSA/m0011KqazOJux9okl7XQm/RpTiik+3a2GOZrsJd9WjDetSebv
+AQ9rSkBVIWLaqIFHuLTyOuKcHQ99NHU4YnSI2QzR5IUc9L56Sc2c1S6ssdHWrib6
+xL7G03BS3ZhPtCCl6e4b7jxRMPFLrAgCGZZdjx5hxtekRdVL+NyR5/CBz1vGFB6y
+46/vQSoemeaEYAfzw/xawAT7msew9MHwsMfA5ZOV/og9ToIyQWe28X6j7L3Z3N2L
+ba0sMSdmDfX5AH+t4GLrJAwxshCyNm5wE3gCqKDi4VtgDXJEAg==
+-----END CERTIFICATE-----

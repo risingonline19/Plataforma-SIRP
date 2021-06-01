@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: praeco
+  name: praeco
+  namespace: sirp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: praeco
+  template:
+    metadata:
+      labels:
+        app: praeco
+    spec:
+      containers:
+        - image: praecoapp/praeco
+          name: praeco
+          ports:
+            - containerPort: 8080
+          resources: {}
+          volumeMounts:
+            - name: praeco-conf
+              mountPath: /var/www/html/praeco.config.json
+              subPath: praeco.config.json
+              readOnly: true
+            - name: praeco-conf
+              mountPath: /etc/nginx/nginx.conf
+              subPath: nginx.conf
+              readOnly: true
+            - name: praeco-conf
+              mountPath: /etc/nginx/conf.d/default.conf
+              subPath: default.conf
+              readOnly: true
+      volumes:
+        - name: praeco-conf
+          configMap:
+            name: praeco-conf

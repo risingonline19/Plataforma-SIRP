@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: elasticsearch
+  namespace: sirp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elasticsearch
+  serviceName: elasticsearch
+  template:
+    metadata:
+      labels:
+        app: elasticsearch
+      name: elasticsearch
+    spec:
+      containers:
+        - env:
+            - name: ES_JAVA_OPTS
+              value: -Xms256m -Xmx256m
+            - name: bootstrap.memory_lock
+              value: "true"
+            - name: cluster.name
+              value: hive
+            - name: discovery.type
+              value: single-node
+            - name: gateway.recover_after_nodes
+              value: "1"
+            - name: http.host
+              value: 0.0.0.0
+            - name: script.allowed_types
+              value: ' inline'
+            - name: thread_pool.search.queue_size
+              value: "100000"
+            - name: thread_pool.write.queue_size
+              value: "10000"
+            - name: xpack.security.enabled
+              value: "false"
+          image: elasticsearch:7.11.1
+          name: elasticsearch
+          resources: {}
+          ports:
+            - containerPort: 9200
+              name: es-node
+            - containerPort: 9300
+              name: es-cluster
+          volumeMounts:
+            - mountPath: /usr/share/elasticsearch/data
+              name: elasticsearch-claim0
+            - mountPath: /usr/share/elasticsearch/logs
+              name: elasticsearch-claim1
+      restartPolicy: Always
+      volumes:
+        - name: elasticsearch-claim0
+          persistentVolumeClaim:
+            claimName: elasticsearch-claim0
+        - name: elasticsearch-claim1
+          persistentVolumeClaim:
+            claimName: elasticsearch-claim1

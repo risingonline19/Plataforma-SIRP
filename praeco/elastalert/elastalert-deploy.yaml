@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+  labels:
+    app: elastalert
+  name: elastalert
+  namespace: sirp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: elastalert
+  template:
+    metadata:
+      labels:
+        app: elastalert
+    spec:
+      containers:
+        - image: praecoapp/elastalert-server:latest
+          name: elastalert
+          ports:
+            - containerPort: 3030
+            - containerPort: 3333
+          resources: {}
+          volumeMounts:
+            - name: elastalert-conf
+              mountPath: /opt/elastalert/config.yaml
+              subPath: elastalert.yaml
+              readOnly: true
+            - name: elastalert-conf
+              mountPath: /opt/elastalert-server/config/config.json
+              subPath: api.config.json
+              readOnly: true
+            - name: elastalert-claim0
+              mountPath: /opt/elastalert/rules
+            - name: elastalert-claim1
+              mountPath: /opt/elastalert/rule_templates
+      volumes:
+        - name: elastalert-claim0
+          persistentVolumeClaim:
+            claimName: elastalert-claim0
+        - name: elastalert-claim1
+          persistentVolumeClaim:
+            claimName: elastalert-claim1
+        - name: elastalert-conf
+          configMap:
+            name: elastalert-conf

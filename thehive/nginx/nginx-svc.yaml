@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx
+  namespace: sirp
+  labels:
+    app: nginx
+    # dns: route53
+  annotations:
+    # domainName: 'changeme'
+    # service.beta.kubernetes.io/aws-load-balancer-ssl-cert: 'changeme'
+    service.beta.kubernetes.io/aws-load-balancer-ssl-ports: '443'
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: https
+spec:
+  type: NodePort
+  selector:
+    io.kompose.service: nginx
+  ports:
+    - name: https
+      port: 443
+      targetPort: 443
+      nodePort: 32443

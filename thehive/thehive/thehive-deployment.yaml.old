@@ -1,0 +1,51 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: thehive
+  name: thehive
+  namespace: sirp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: thehive
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: thehive
+    spec:
+      volumes:
+        - name: config
+          configMap:
+            name: thehive-conf
+        - name: thehive-claim1
+          persistentVolumeClaim:
+            claimName: thehive-claim1
+        - name: thehive-claim2
+          persistentVolumeClaim:
+            claimName: thehive-claim2
+      containers:
+        - args:
+            - --cortex-hostname
+            - "cortex.sirp"
+            - --cortex-port
+            - "9001"
+            - --cortex-keys
+            - "nqohXD1VT+ShxQH385pLwTGXIYTwICld"
+          image: thehiveproject/thehive4:latest
+          name: thehive
+          ports:
+            - containerPort: 9000
+          resources: {}
+          volumeMounts:
+            - name: config
+              mountPath: /etc/thehive/application.conf
+              subPath: application.conf
+              readOnly: true
+            - mountPath: /opt/thp/thehive/data
+              name: thehive-claim1
+            - mountPath: /opt/thp/thehive/index
+              name: thehive-claim2
